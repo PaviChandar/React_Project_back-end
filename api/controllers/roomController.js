@@ -1,9 +1,11 @@
 import Room from "../models/Room";
 import Hotel from "../models/Hotel";
 import createError from "../utils/error";
+import Bookings from "../models/Bookings";
 
 //CREATE
 export const createRoom = async (req, res, next) => {
+    console.log("rooms",req.body)
     const hotelId = req.params.hotelid;
     const newRoom = new Room(req.body)
 
@@ -90,6 +92,28 @@ export const getRoom = async (req, res, next) => {
         res.status(500).json(err)
     }
 }
+
+export const reserveBooking = async (req, res, next) => {
+    console.log("entering",req.body)
+    const newBooking = new Bookings(req.body) //store hotel info
+
+    try{
+        const savedBooking = await newBooking.save()
+        res.status(200).json(savedBooking)
+    } catch(err) {
+        res.status(500).json(err)
+    }
+}
+
+export const getBookings = async (req, res, next) => {
+
+    try {
+        const bookings = await Bookings.find();
+        res.status(200).json(bookings)
+    } catch (err) {
+         res.status(500).json(err)
+    }
+} 
 
 //GET ALL
 export const getRooms = async (req, res, next) => {

@@ -4,6 +4,7 @@ import Room from "../models/Room.js"
 //class controller , func name - create
 //CREATE
 export const createHotel = async(req, res, next) => {
+    console.log("new hotel",req.body)
     const newHotel = new Hotel(req.body) //store hotel info
 
     try{
