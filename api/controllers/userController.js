@@ -1,5 +1,5 @@
 import User from "../models/User.js"
-//create service
+
 //CREATE - we have register for create
 
 //UPDATE
