@@ -1,31 +1,20 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import authRoute from "./api/routes/authenticate.js"
-import usersRoute from "./api/routes/user.js"
-import hotelsRoute from "./api/routes/hotel.js"
-import roomsRoute from "./api/routes/room.js"
+import authRoute from "./api/routes/Authenticate.js"
+import usersRoute from "./api/routes/User.js"
+import hotelsRoute from "./api/routes/Hotel.js"
+import roomsRoute from "./api/routes/Room.js"
 import cookieParser from "cookie-parser";
 import cors from 'cors'
 const app = express();
 dotenv.config();
-
-// console.log("db : ",process.env.MONGO)
-// mongoose.connect(process.env.MONGO)
-// .then(() => {
-//     console.log("Db got connected")
-// })
-// .then(() => {
-//     console.log(`Server is running on port : 8800`)
-//     app.listen(8800)})
-// .catch(err => console.log("Error in connecting to database, error : " ,err.message))
 
 const connect = async() => {
     try {
         console.log("url : ",process.env.MONGO)
         await mongoose.connect(process.env.MONGO);
         console.log("Connected to Mongo DB");
-        // 'mongodb://localhost:27017/test'  - secret url
       } catch (error) {
         console.log("Error : ",error)
         throw error;
@@ -36,14 +25,8 @@ mongoose.connection.on("disconnected", () => {
     console.log("mongoDB disconnected")
 });
 
-// app.use((req,res,next) => {
-//     console.log("this is middleware")
-//     next()
-// })
-
-
 //middleware
-app.use(cookieParser()) //to store token in cookie
+app.use(cookieParser()) 
 app.use(express.json())
 app.use(cors())
 

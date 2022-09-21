@@ -17,7 +17,7 @@ import mongoose from 'mongoose'
         type: String,
        default: false
     },
-    roomNumbers: [{number :Number , unavailableDate: [{type: [Date] }] }], //[Date]-coz type:[String] in Hotel.js
+    roomNumbers: [{number :Number , unavailableDate: [{type: [Date] }] }], 
 },
 { timestamps: true }
 );

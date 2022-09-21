@@ -39,7 +39,6 @@ import mongoose from 'mongoose'
     },
     cheapestPrice: {
         type: Number,
-        required: true
     },
     featured: {
         type: Boolean,

@@ -15,7 +15,6 @@ import mongoose from 'mongoose'
     },
     price: {
         type: Number,
-        required: true,
     }
 }
 );

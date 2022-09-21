@@ -1,7 +1,5 @@
 import User from "../models/User.js"
 
-//CREATE - we have register for create
-
 //UPDATE
 export const updateUser = async(req, res, next) => {
     try {
@@ -40,7 +38,6 @@ export const getUsers = async(req, res, next) => {
         const users = await User.find();
         res.status(200).json(users)
     } catch(err) {
-        // res.status(500).json(err)
         next(err)
     }
 }
